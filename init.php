@@ -9,10 +9,10 @@ error_reporting(E_ALL);
 
 
 
-$db = new PDO('mysql:host=localhost;dbname=login;charset=utf8', 'root', 'admin');
-$stmt = $db->query("SELECT * FROM user");
-// Lấy hết toàn bộ dữ liệu
-$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $db = new PDO('mysql:host=localhost;dbname=login;charset=utf8', 'root', 'admin');
+// $stmt = $db->query("SELECT * FROM user");
+// // Lấy hết toàn bộ dữ liệu
+// $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // var_dump($data);
 // hoặc lấy từng dòng
