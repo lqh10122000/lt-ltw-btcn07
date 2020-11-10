@@ -16,9 +16,9 @@ $users = array($Huy);
 function findUserByUserID($username)
 {
     global $db;
-    $stmt = $db->query("SELECT * FROM User;");
-    // lấy toàn bộ data
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // $stmt = $db->query("SELECT * FROM User;");
+    // // lấy toàn bộ data
+    // $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     
     //global $users;
