@@ -1,0 +1,104 @@
+.input_info
+{
+    
+    /* display: flex; */
+    /* justify-content: center; */
+    background-color: blueviolet;
+    /* align-content: center; */
+    /* margin-left: 300px; */
+}
+
+
+
+.col
+{
+    border-color: brown;
+}
+
+
+.cs
+{
+    margin-top: 50px;
+    border-color: brown;
+    background-color: #00a19b;
+    width: 200px;
+    height: 550px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+.cs1
+{
+    border-color: brown;
+    background-color: none;
+    width: 200px;
+    height: 600px;
+}
+
+
+.cs2
+{
+    border-color: brown;
+    background-color: none;
+    width: 200px;
+    height: 600px;
+}
+
+h3
+{
+    padding-top: 60px;
+}
+
+h1
+{
+    padding-top: 40px;
+
+}
+
+.number
+{
+    margin-top: 20px;
+    width: 250px;
+}
+
+.btnSubmit
+{
+    margin-top: 50px;
+    width: 150px;
+    height: 50px;
+}
+
+.result
+{
+    height: 200px;
+    background-color: cornflowerblue;
+    margin-top: 250px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+h2
+{
+    padding-top: 30px;
+}
+
+body{
+    /* background-image: url("background.jpeg"); */
+    /* background-repeat: inherit; */
+}
+
+
+.bar-header
+{
+    max-height: 100px;
+    max-width: 1000px;
+    background-color: aqua; 
+    display: flex;
+    margin-left: 20px;
+}
+
+.aaaa
+{
+    background-color: aqua;
+}
