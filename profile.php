@@ -102,11 +102,9 @@ body{
     color: #0062cc;
 }
 </style>
-
 <?php   
-
+    require_once 'function.php';
     // var_dump($_FILES['avatar']['name']);
-
     if(isset($_FILES['avatar']))
     {
         echo "da vo ";
@@ -114,48 +112,36 @@ body{
         $newImage = resizeImage($file, 250, 250);
         $fileSave = './avatar/'.$file;
         imagejpeg($newImage, $fileSave);
-        var_dump($file);
     }
-
-
-    
-
-
+    $user = findUserById($_SESSION['userId']);
+    if(isset($user))
+    {
+        $username = $user['username'];
+        $ID = $user['ID'];
+        $email = $user['email'];
+    }
     function resizeImage($filename, $max_width, $max_height)
     {
         list($orig_width, $orig_height) = getimagesize($filename);
-
         $width = $orig_width;
         $height = $orig_height;
-
         # taller
         if ($height > $max_height) {
             $width = ($max_height / $height) * $width;
             $height = $max_height;
         }
-
         # wider
         if ($width > $max_width) {
             $height = ($max_width / $width) * $height;
             $width = $max_width;
         }
-
         $image_p = imagecreatetruecolor($width, $height);
-
         $image = imagecreatefromjpeg($filename);
-
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $orig_width, $orig_height);
-
         return $image_p;
     }
-
-    
-
    include_once("header.php");
-
 ?> 
-
-
 <div class="container emp-profile masthead" style="background-image: url('./images/home-bg.jpg')">    
             <!-- <form method="post"> -->
                 <div class="row">
@@ -173,39 +159,16 @@ body{
                     </form>
                         <div class="profile-img">
 
-
-                                
-                            <!-- <form method="POST" enctype="multipart/form-data">
-
-                                <div>
-
-                                <label for="avatar">Choose file to upload</label>
-                                <input type="file" id="avatar" name="avatar" >
-                                 </div>
-                                <div>
-                                <button>Submit</button>
-                                </div>
-                            </form> -->
-                            
-                            
-                            
-
-                            
-                        
-
-                            
-                        <!-- https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog -->
-                            
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
-                                    <h5>
-                                        Kshiti Ghelani
-                                    </h5>
-                                    <h6>
+                                    <h1>
+                                        Your Profile
+                                    </h1>
+                                    <h3>
                                         Web Developer and Designer
-                                    </h6>
+                                    </h3>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -244,7 +207,7 @@ body{
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p><?php echo $ID;?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -252,7 +215,7 @@ body{
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p><?php echo $username;?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -260,7 +223,7 @@ body{
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p><?php echo $email;?></p>
                                             </div>
                                         </div>
                                         <div class="row">

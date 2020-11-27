@@ -38,36 +38,6 @@
 
    <?php include_once("header.php"); ?>
 
-<!-- 
-
-    <div class = "bar-header ">
-        
-        <div>
-            <form action = "sum.php" >
-                <input  class = "button-bar" name="submit" type="submit" value = "sum">
-            </from>
-        </div>
-        
-        <div>
-            <form action = "status.php">
-                <input  class = "button-bar"  type="submit" value = "status"> 
-            </from>
-        </div>
-        
-        <div>
-            <form action = "profile.php">
-                <input  class = "button-bar" type="submit" value = "profile">  
-            </from>
-        </div>
-        
-        <div>
-            <form action = "dangNhap.php">
-                <input class = "button-bar" type="submit" value = "log out"> 
-            </from>
-        </div>
-        
-
-    </div> -->
     
     <div class="container masthead" style="background-image: url('./images/home-bg.jpg')">
 

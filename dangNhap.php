@@ -27,50 +27,43 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-
-
-
 <?php 
 	require_once 'init.php';
 	require_once 'function.php';
-	if(isset($_GET['username']) && isset($_GET['password']))
+	if(isset($_GET['email']) && isset($_GET['password']))
 	{
-	
-		$username = $_GET['username'];
 		$password = $_GET['password'];
-		
-		$user = findUserByUserID($username);
-
+		$user = findUserByUserID($_GET['email']);
 		if(!$user)
 		{
 			$error =  'không tìm thấy người dùng !';
 		}
 		else
 		{
-			
-			if(!password_verify($password , $user['Password']) )
+			if(!password_verify($password , $user['PASSWORD']) )
 			{
 				$error = 'sai mật khẩu';
 			}
 			else
 			{
-				$_SESSION['username'] = $user['username'];
-				header('location: sum.php');
-				exit();
+				if($user['code'])
+				{
+					echo 'vui lòng kiểm tra emil để kích hoạt tài khoản !';
+				}
+				else
+				{
+					$_SESSION['email'] = $user['email'];
+					require_once('profile.php');
+				}
+				
 			}
 		}
-
 		if($error)
 		{
 			echo $error;
 		}
-		
 	}
 ?>
-
-
-
-
 <body style="background-color: #666666;">
 	
 	<div class="limiter">
@@ -86,7 +79,7 @@
 						
 
 						<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-							<input class="input100" type="text" name="username">
+							<input class="input100" type="text" name="email">
 							<span class="focus-input100"></span>
 							<span class="label-input100">Email</span>
 						</div>

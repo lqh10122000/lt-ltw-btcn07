@@ -26,6 +26,9 @@
             <a class="nav-link" href="sum.php">Sum <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
+            <a class="nav-link" href="changePassword.php">Change Password <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
             <a class="nav-link" href="dangNhap.php">Logout <span class="sr-only">(current)</span></a>
         </li>
         </ul>

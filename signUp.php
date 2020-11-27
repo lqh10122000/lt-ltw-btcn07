@@ -7,6 +7,25 @@
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+
+
+<?php 
+   require_once 'function.php';
+   if(isset($_POST['emailSU']) && isset($_POST['passwordSU']))
+	{
+      $email = $_POST['emailSU'];
+      $username = $_POST['username'];
+      $passwordSU = $_POST['passwordSU'];
+      $str=rand(); 
+      $code = md5($str); 
+      createUser($email, $username, $passwordSU, $code);
+      $user = findUserByUserID($email);
+      sendEmail($email, 'kích hoạt tài khoản', 'vui lòng click vào để kích hoạt tài khoản http://localhost:8080/LT_BTCN06/active.php?id='.$user['ID'].'&code='.$code);
+      include_once 'dangNhap.php';
+   }
+    
+?>
+
 <body>
     <div style = "margin-top: 200px;" class="container">
         <div class="row">
@@ -18,10 +37,14 @@
 							<h1>Sign Up</h1>
 						 </div>
 					</div>
-                   <form action="dangNhap.php" method="post" name="login">
+                   <form method="post" name="login">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
                               <input type="email" name="emailSU"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">Name</label>
+                              <input type="text" name="username"  class="form-control" id="username" placeholder="Enter your name">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Password</label>
